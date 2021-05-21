@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background:lightgray">
+  <ion-item>
+    <label for="myCity" style="color:#3880ff;">City</label>
+    <br><br>
+    <input [(ngModel)]="city" type="text" style="border: none" name="myCity">
+  </ion-item>
+  <h2>Settings</h2>
+  <hr>
+  <ion-item>
+    <label for="myList" style="color:gray;">Units</label>
+  </ion-item>
+  <ion-list radio-group [(ngModel)]="units" name="myList">
+    <ion-item>
+      <ion-label>Standard</ion-label>
+      <ion-radio value="standard"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Metric</ion-label>
+      <ion-radio value="metric"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Imperial</ion-label>
+      <ion-radio value="imperial"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="onSaveClick()">Save</button>
+</ion-content>

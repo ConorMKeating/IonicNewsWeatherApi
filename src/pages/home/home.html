@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      G00388038
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="openSettings()">
+        <ion-icon name='settings'></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background:lightgray">
+  <h1>Weather for {{ cName }}</h1>
+  <br>
+  <h2 [hidden]="hidden">City not found</h2>
+  <img [hidden]="disabled" src="{{iconAddress}}">
+  <h2>{{ wMain }}</h2>
+  <p>({{ wDesc }})</p>
+  <h2>Temperature: {{ realTemp }}</h2>
+  <p>(Feels like: {{ feelsLike }}) </p>
+  <hr>
+  <button ion-button [disabled]="disabled" (click)="onClickNews()">News</button>
+  <button ion-button [disabled]="disabled" (click)="onClick7Day()">7-Day Weather</button>
+  <hr>
+
+  <ion-list [hidden]="newsHid">
+    <h2>Total News Stories From {{countryID}}: {{newsNum}}</h2>
+    <ion-item>
+      <li *ngFor="let y of newsArr">
+        <img width="100" height="75" (click)="openLink(y.url)" src="{{y.urlToImage}}">
+        <p (click)="openLink(y.url)" style="color:#3880ff;"><u>{{y.title}}</u></p>
+        <p (click)="openLink(y.url)"><u>{{y.description}}</u></p>
+        <hr>
+      </li>
+    </ion-item>
+  </ion-list>
+
+  <ion-list [hidden]="weather7Hid">
+    <h2>7 Day Forecast for {{cName}}, {{countryID}}</h2>
+    <ion-item>
+      <li *ngFor="let y of day">
+        <div style="width: 500px; float:left; height:200px">
+          <h3><b>{{unixConverter(y.dt)}}</b></h3>
+          <img width="100" height="100" (click)="openLink(y.url)"
+            src="http://openweathermap.org/img/wn/{{y.weather[0].icon}}@2x.png">
+          <p> {{y.weather[0].main}} ({{y.weather[0].description}})</p>
+          <p> Average Daytime Temperature: {{y.temp.day}}</p>
+          <p> Average Nighttime Temperature: {{y.temp.night}}</p>
+          <hr>
+        </div>
+      </li>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
