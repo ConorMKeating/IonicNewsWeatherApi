@@ -12,7 +12,7 @@ go back to the settings page and change cities or temperature units whenever the
 application will refresh the weather data in home page.
 
 To run this program:<br>
-1 Install ionic on local machine.
-2 Download project folder.
-3 In a command prompt, navigate to the project folder.
-4 Enter the command..   ionic serve
+1 Install ionic on local machine.<br>
+2 Download project folder.<br>
+3 In a command prompt, navigate to the project folder.<br>
+4 Enter the command..   ionic serve<br>
